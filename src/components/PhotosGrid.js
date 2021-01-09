@@ -16,6 +16,7 @@ const PhotosGrid = ({photos}) => {
         <>
             <h3>Photos Grid – Meath 1930-1949</h3>
             <ul>{photoNodes}</ul>
+            <p>Hello</p>
         </>
     )
 };
