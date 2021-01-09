@@ -1,5 +1,6 @@
 import PhotosContainer from "../containers/PhotosContainer";
 import PhotoItem from "./PhotoItem";
+import "./PhotosGrid.css"
 
 
 const PhotosGrid = ({photos}) => {
@@ -8,15 +9,16 @@ const PhotosGrid = ({photos}) => {
         return (
             <PhotoItem
             photo={photo}
+            key={index}
             />
         )
     })
 
     return (
-        <>
+        <div >
             <h3>Photos Grid – Meath 1930-1949</h3>
-            <ul>{photoNodes}</ul>
-        </>
+            <ul id="photos-grid">{photoNodes}</ul>
+        </div>
     )
 };
 
