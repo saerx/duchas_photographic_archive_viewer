@@ -25,10 +25,14 @@ function App() {
     fetchPhotos()
   }, [])
 
+  const changeCountyID = (countyID) => {
+    setParentCountyID(countyID)
+  }
+
   return (
     <>
       <h1>Photo Collection</h1>
-      <CountyChanger />
+      <CountyChanger changeCountyID={changeCountyID}/>
       <PhotosContainer photos={photos}/>
     </>
   );

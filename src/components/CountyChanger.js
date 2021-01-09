@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const CountyChanger = () => {
+const CountyChanger = ({changeCountyID}) => {
 
-    const [countyID, setCountyID] = useState("")
+    const [countyID, setCountyID] = useState("100000")
 
     const handleCountyChange = (event) => {
         setCountyID(event.target.value)
     }
+
+    useEffect ((countyID) => {
+        changeCountyID(countyID)
+    }, [countyID])
+
 
     return (
 
