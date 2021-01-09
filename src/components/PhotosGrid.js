@@ -10,11 +10,11 @@ const PhotosGrid = ({photos}) => {
             photo={photo}
             />
         )
-    })
+    });
 
     return (
         <>
-            <h3>Photos Grid – Meath 1930-1949</h3>
+            <h3>Photos Grid</h3>
             <ul>{photoNodes}</ul>
         </>
     )
