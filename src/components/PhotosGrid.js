@@ -2,12 +2,20 @@ import PhotosContainer from "../containers/PhotosContainer";
 import PhotoItem from "./PhotoItem";
 
 
-const PhotosGrid = () => {
+const PhotosGrid = ({photos}) => {
+
+    const photoNodes = photos.map((photo, index) => {
+        return (
+            <PhotoItem
+            photo={photo}
+            />
+        )
+    })
 
     return (
         <>
             <h3>Photos Grid</h3>
-            <PhotoItem />
+            <ul>{photoNodes}</ul>
         </>
     )
 };
