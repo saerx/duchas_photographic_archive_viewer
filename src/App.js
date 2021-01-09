@@ -2,12 +2,14 @@ import './App.css';
 import { useState, useEffect } from 'react'
 
 import PhotosContainer from "./containers/PhotosContainer"
+import CountyChanger from "./components/CountyChanger"
 
 
 
 function App() {
 
   const [photos, setPhotos] = useState([])
+  const [parentCountyID, setParentCountyID] = useState([]);
 
   const fetchPhotos = () => {
     console.log("getting photos...")
@@ -26,6 +28,7 @@ function App() {
   return (
     <>
       <h1>Photo Collection</h1>
+      <CountyChanger />
       <PhotosContainer photos={photos}/>
     </>
   );
