@@ -8,7 +8,7 @@ const CountyChanger = ({changeCountyID}) => {
         setCountyID(event.target.value)
     }
 
-    useEffect ((countyID) => {
+    useEffect ((ID) => {
         changeCountyID(countyID)
     }, [countyID])
 
@@ -16,7 +16,7 @@ const CountyChanger = ({changeCountyID}) => {
     return (
 
         <>
-            <h1>County Changer </h1>
+            <label>Change County: </label>
             <select name="county-changer"
                     onChange={handleCountyChange}>
                 <option value="100000">Antrim</option>
