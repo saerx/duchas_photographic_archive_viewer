@@ -8,7 +8,7 @@ const DateRangeChanger = ({changeParentDateRange}) => {
         setStartDate(event.target.value)
     }
 
-    useEffect ((startDate) => {
+    useEffect ((year) => {
         changeParentDateRange(startDate)
     }, [startDate])
 

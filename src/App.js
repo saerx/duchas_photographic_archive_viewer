@@ -17,7 +17,7 @@ function App() {
   const fetchPhotos = () => {
     console.log("getting photos...")
     // Photos from Co. Meath in the 1930s and 40s
-    const url = `https://www.duchas.ie/api/v0.5/cbeg/?CountyID=${parentCountyID}&DateFrom=1930&DateTo=1939&apiKey=Rua2njQgwdoZ9vnRb7JTV7dfHQ4c5a`
+    const url = `https://www.duchas.ie/api/v0.5/cbeg/?CountyID=${parentCountyID}&DateFrom=${parentStartDate}&DateTo=${endDate}&apiKey=Rua2njQgwdoZ9vnRb7JTV7dfHQ4c5a`
 
     fetch(url)
       .then(res => res.json())
@@ -26,15 +26,20 @@ function App() {
 
   useEffect(() => {
     fetchPhotos()
-  }, [parentCountyID])
+  }, [parentCountyID, parentStartDate])
 
   const handleParentCountyID = (countyID) => {
     setParentCountyID(countyID)
   }
 
   const handleDateRange = (year) => {
-    setParentStartDate(year)
-  }
+    setParentStartDate(year);
+   }
+
+  useEffect(() => {
+    const newEndDate = parseInt(parentStartDate) + 9;
+    setEndDate(`${newEndDate}`)
+  }, [parentStartDate])
 
   return (
     <>
