@@ -5,7 +5,7 @@ const SinglePhotoView = () => {
 
     let { id } = useParams();
 
-    const [photoObject, setPhotoObject] = useState("")
+    const [photo, setPhoto] = useState("")
 
     const fetchPhoto = () => {
         console.log("getting photo...")
@@ -13,19 +13,24 @@ const SinglePhotoView = () => {
     
         fetch(url)
           .then(res => res.json())
-          .then(data => setPhotoObject(data))
+          .then(data => setPhoto(data))
       };
 
     useEffect(() => {
         fetchPhoto()
-      }, [photoObject])
+      }, [photo])
+
+    let photoYear = null;
+    if (photo.date) {
+        photoYear = <>{photo.date.isoDate}</>
+    }
 
     return (
         <>
-            <h3> Single Photo View ({id})</h3>
-            <img src={`https://doras.gaois.ie/cbeg/${photoObject.referenceNumber}.jpg?format=jpg&width=620&quality=85`}/>
-            <>{photoObject.archiveDescription} </>
-            <br/>
+            <h3>{photo.archivedDescription} ({photoYear})</h3>
+            <img src={`https://doras.gaois.ie/cbeg/${photo.referenceNumber}.jpg?format=jpg&width=620&quality=85`}/>
+            {/* <p>Photographer: {photo.photographer.names[0].fullName}</p> */}
+            
         </>
     )
 }
