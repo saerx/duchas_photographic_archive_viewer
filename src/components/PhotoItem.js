@@ -2,12 +2,14 @@
 
 const PhotoItem = ({photo}) => {
 
+    if (!photo) return null;
+
     let photoCaption = null;
 
     if (photo.date) {
-        photoCaption = <h4>{photo.archivedDescription} ({photo.date.isoDate}) – {photo.photographer.names[0].fullName}</h4>
+        photoCaption = <h4>{photo.archivedDescription} ({photo.date.isoDate}) </h4>
     } else {
-        photoCaption = <h4>{photo.archivedDescription} – {photo.photographer.names[0].fullName}</h4>
+        photoCaption = <h4>{photo.archivedDescription}</h4>
     }
 
     return (
