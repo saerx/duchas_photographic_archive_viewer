@@ -1,10 +1,11 @@
 import './App.css';
 import { useState, useEffect } from 'react'
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import PhotosContainer from "./containers/PhotosContainer"
 import CountyChanger from "./components/CountyChanger"
 import DateRangeChanger from "./components/DateRangeChanger"
-
+import SinglePhotoView from "./components/SinglePhotoView"
 
 
 function App() {
@@ -42,15 +43,20 @@ function App() {
   }, [parentStartDate])
 
   return (
-    <>
+    <Router>
       <h1>Dúchas Photographic Collection</h1>
       <h2>A Century of Irish Life</h2>
       <CountyChanger changeCountyID={handleParentCountyID}/>
       <br/>
       <br/>
       <DateRangeChanger changeParentDateRange={handleDateRange}/>
-      <PhotosContainer photos={photos}/>
-    </>
+        <Switch>
+            <Route exact path="/"
+                   render={()=><PhotosContainer photos={photos}/>}/>
+            <Route path = "/:id"
+                   render={()=><SinglePhotoView />}/>
+      </Switch>
+    </Router>
   );
 }
 
