@@ -15,7 +15,6 @@ const PhotosGrid = ({photos}) => {
 
     return (
         <>
-            <h3>Photos Grid</h3>
             <ul>{photoNodes}</ul>
         </>
     )

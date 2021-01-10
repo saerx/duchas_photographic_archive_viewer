@@ -43,7 +43,8 @@ function App() {
 
   return (
     <>
-      <h1>Photo Collection</h1>
+      <h1>Dúchas Photographic Collection</h1>
+      <h2>A Century of Irish Life</h2>
       <CountyChanger changeCountyID={handleParentCountyID}/>
       <br/>
       <br/>

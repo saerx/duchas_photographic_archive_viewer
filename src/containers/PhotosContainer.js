@@ -16,7 +16,6 @@ const PhotosContainer = ({photos}) => {
 
     return (
         <>
-            <h2>Photos Container</h2>
             <PhotosGrid photos={photos}/>
         </>
     )}
