@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     fetchPhotos()
-  }, [parentCountyID, parentStartDate])
+  }, [parentCountyID, endDate])
 
   const handleParentCountyID = (countyID) => {
     setParentCountyID(countyID)
