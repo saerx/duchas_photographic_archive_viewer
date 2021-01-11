@@ -26,10 +26,10 @@ const PhotoItem = ({photo}) => {
 
     return (
         <>
-            
+            <li>
             <img onError={checkImage}src={`https://doras.gaois.ie/cbeg/${photo.referenceNumber}.jpg?format=jpg&width=620&quality=85`}/>
             <>{photoCaption} </>
-            <br/>
+            </li>
             
         </>
     )

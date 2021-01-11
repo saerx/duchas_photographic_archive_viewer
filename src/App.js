@@ -54,7 +54,7 @@ function App() {
             <Route exact path="/"
                    render={()=><PhotosContainer photos={photos}/>}/>
             <Route path = "/:id"
-                   render={()=><SinglePhotoView />}/>
+                   component={SinglePhotoView}/>
       </Switch>
     </Router>
   );
