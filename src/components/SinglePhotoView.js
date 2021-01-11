@@ -29,7 +29,7 @@ const SinglePhotoView = () => {
         <>
             <h3>{photo.archivedDescription} ({photoYear})</h3>
             <img src={`https://doras.gaois.ie/cbeg/${photo.referenceNumber}.jpg?format=jpg&width=620&quality=85`}/>
-            {/* <p>Photographer: {photo.photographer.names[0].fullName}</p> */}
+            {/* <p>Photographer: {photo.photographer.names[0].fullName} </p> */}
             <br/>
             <Link to="/">Back to Main View</Link>
         </>
