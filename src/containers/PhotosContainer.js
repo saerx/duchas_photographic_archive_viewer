@@ -7,7 +7,7 @@ const PhotosContainer = ({photos}) => {
         return null 
 
     // This doesn't work, need to make it recognise there is an empty array 
-    } else if (photos === []) {
+    } else if (photos.length === 0) {
         return (
         <>
             <p>No photos available for this county and date range</p>
