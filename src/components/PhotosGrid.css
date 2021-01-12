@@ -1,0 +1,71 @@
+.photoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+
+}
+
+.imageWrap {
+    /* width: 80%; just here for the preview */
+    position: relative;
+}
+
+.imageWrap img{
+    max-width: 100%;
+    z-index: 1;
+}
+
+.imageWrap figcaption{
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 5px; /*if using padding in the caption, match here */
+    left: 0;
+    z-index: 2;
+    margin: 0;
+    padding: 5px 0;
+    text-indent: 5px;
+    color: #fff;
+    /* font-weight: bold; */
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.imageWrap figcaption > figcaption {
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.imageWrap figcaption > figcaption a {
+    font-family: 'Roboto', sans-serif;
+    text-align: right;
+}
+
+.imageWrap figcaption > figcaption a:link {
+    color: deeppink;
+    text-decoration: none;
+}
+
+.imageWrap figcaption > figcaption a:hover {
+    color: lemonchiffon;
+    text-decoration: none;
+}
+
+.pageHeading {
+    width: 100%;
+    background-color: forestgreen;
+    float: left;
+    margin-left: 2rem;
+    padding: 2rem 0;
+    text-align: left;
+}
+
+.pageSubHeading {
+    background-color: darkseagreen;
+    padding: 2rem 0;
+
+}
+
+
