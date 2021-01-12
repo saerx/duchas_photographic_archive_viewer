@@ -1,4 +1,3 @@
-import PhotosContainer from "../containers/PhotosContainer";
 import PhotoItem from "./PhotoItem";
 import ReactPaginate from 'react-paginate'
 
