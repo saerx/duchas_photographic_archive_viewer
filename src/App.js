@@ -45,9 +45,13 @@ function App() {
     fetchPhotos()
   }, [parentCountyID, endDate, offset])
 
-  const handleParentCountyID = (countyID) => {
+  const resetPage = () => {
     setCurrentPage(0)
     setOffset(0)
+  }
+
+  const handleParentCountyID = (countyID) => {
+    resetPage()
     setParentCountyID(countyID)
   }
 
@@ -65,8 +69,7 @@ function App() {
   useEffect(() => {
     const newEndDate = parseInt(parentStartDate) + 9;
     setEndDate(`${newEndDate}`)
-    setOffset(0)
-    setCurrentPage(0)
+    resetPage()
   }, [parentStartDate])
 
   return (
