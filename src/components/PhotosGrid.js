@@ -1,5 +1,6 @@
 import PhotosContainer from "../containers/PhotosContainer";
 import PhotoItem from "./PhotoItem";
+import "./PhotosGrid.css"
 
 
 const PhotosGrid = ({photos}) => { 
@@ -15,7 +16,7 @@ const PhotosGrid = ({photos}) => {
 
     return (
         <>
-            <ul>{photoNodes}</ul>
+            <div className="photoGrid">{photoNodes}</div>
         </>
     )
 };

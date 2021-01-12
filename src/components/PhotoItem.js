@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom"
 import { useState } from "react"
 
@@ -15,9 +16,9 @@ const PhotoItem = ({photo}) => {
     let photoCaption = null;
 
     if (photo.date) {
-        photoCaption = <h4>{photo.archivedDescription} ({photo.date.isoDate}) <Link to={`/${photo.id}`}>More Info</Link></h4>
+        photoCaption = <figcaption>{photo.archivedDescription} ({photo.date.isoDate}) <Link to={`/${photo.id}`}>More Info</Link></figcaption>
     } else {
-        photoCaption = <h4>{photo.archivedDescription}<button>More info</button></h4>
+        photoCaption = <figcaption>{photo.archivedDescription}<button>More info</button></figcaption>
     }
 
 
@@ -26,10 +27,10 @@ const PhotoItem = ({photo}) => {
 
     return (
         <>
-            <li>
-            <img onError={checkImage}src={`https://doras.gaois.ie/cbeg/${photo.referenceNumber}.jpg?format=jpg&width=620&quality=85`}/>
-            <>{photoCaption} </>
-            </li>
+            <figure className="imageWrap">
+                <img onError={checkImage}src={`https://doras.gaois.ie/cbeg/${photo.referenceNumber}.jpg?format=jpg&width=620&quality=85`}/>
+                <figcaption><>{photoCaption}</></figcaption>
+            </figure>
             
         </>
     )

@@ -44,8 +44,8 @@ function App() {
 
   return (
     <Router>
-      <h1>Dúchas Photographic Collection</h1>
-      <h2>A Century of Irish Life</h2>
+      <h1 className = "pageHeading">Dúchas Photographic Collection</h1>
+      <h2 className= "pageSubHeading">A Century of Irish Life</h2>
       <CountyChanger changeCountyID={handleParentCountyID}/>
       <br/>
       <br/>
