@@ -54,7 +54,8 @@ function App() {
 
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
-    setOffset(selectedPage + 1)
+    console.log(selectedPage);
+    setOffset(selectedPage * perPage)
   };
 
   useEffect(() => {
