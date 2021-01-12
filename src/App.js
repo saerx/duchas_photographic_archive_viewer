@@ -46,6 +46,8 @@ function App() {
   }, [parentCountyID, endDate, offset])
 
   const handleParentCountyID = (countyID) => {
+    setCurrentPage(0)
+    setOffset(0)
     setParentCountyID(countyID)
   }
 
@@ -63,6 +65,8 @@ function App() {
   useEffect(() => {
     const newEndDate = parseInt(parentStartDate) + 9;
     setEndDate(`${newEndDate}`)
+    setOffset(0)
+    setCurrentPage(0)
   }, [parentStartDate])
 
   return (
