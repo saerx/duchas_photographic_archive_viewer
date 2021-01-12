@@ -1,6 +1,6 @@
 import PhotosGrid from "../components/PhotosGrid"
 
-const PhotosContainer = ({photos, changePage, pageCount}) => {
+const PhotosContainer = ({photos, changePage, pageCount, currentPage}) => {
 
     if (!photos) {
 
@@ -16,7 +16,8 @@ const PhotosContainer = ({photos, changePage, pageCount}) => {
 
     return (
         <>
-            <PhotosGrid photos={photos} changePage={changePage} pageCount ={pageCount}/>
+            <PhotosGrid photos={photos} changePage={changePage} pageCount ={pageCount}
+            currentPage={currentPage}/>
         </>
     )}
 }

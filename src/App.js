@@ -16,6 +16,7 @@ function App() {
   const [offset, setOffset] = useState(0);
   const [perPage] = useState(10);
   const [pageCount, setPageCount] = useState(0)
+  const [currentPage, setCurrentPage] = useState(0)
   const [parentCountyID, setParentCountyID] = useState("100000");
   const [parentStartDate, setParentStartDate] = useState("1930");
   const [endDate, setEndDate] = useState("1939");
@@ -56,6 +57,7 @@ function App() {
     const selectedPage = e.selected;
     console.log(selectedPage);
     setOffset(selectedPage * perPage)
+    setCurrentPage(selectedPage)
   };
 
   useEffect(() => {
@@ -73,7 +75,8 @@ function App() {
       <DateRangeChanger changeParentDateRange={handleDateRange}/>
         <Switch>
             <Route exact path="/"
-                   render={()=><PhotosContainer photos={photos} changePage={handlePageClick} pageCount ={pageCount}/>}/>
+                   render={()=><PhotosContainer photos={photos} changePage={handlePageClick} pageCount ={pageCount}
+                   currentPage={currentPage}/>}/>
             <Route path = "/:id"
                    component={SinglePhotoView}/>
       </Switch>
