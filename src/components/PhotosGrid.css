@@ -1,14 +1,13 @@
 .photoGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-    padding-top: 50px;
+    padding: 50px 20px;
 
 }
 
 .imageWrap {
-    /* width: 80%; just here for the preview */
     position: relative;
 }
 
