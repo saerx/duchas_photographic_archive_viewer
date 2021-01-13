@@ -19,19 +19,11 @@ const PhotoMap = ({ photo }) => {
         return null
     }
 
-
-        // hard coded information in above componenet  
-
-        // passing props into componenet from container, list instead of object
-
-        // populate data into new map component
-
-        // dynamically all the markers will be changed but not zoom
         
     console.log("photo", photo.locationsIreland[0].coordinates)
     const coordinates = photo.locationsIreland[0].coordinates
     return (
-        <Map center={[coordinates.latitude, coordinates.longitude]} zoom={6}>
+        <Map center={[coordinates.latitude, coordinates.longitude]} zoom={10}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

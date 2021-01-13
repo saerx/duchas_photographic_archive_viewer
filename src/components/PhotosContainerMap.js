@@ -7,7 +7,7 @@ import PhotosContainer from '../containers/PhotosContainer';
 
 const PhotosContainerMap = ({ photos }) => {
 
-    const [currentLocation, setCurrentLocation] = useState(); //{//lat lng co-ordinates//} 53.264, -7.564
+    const [currentLocation, setCurrentLocation] = useState([53.264, -7.564]); 
     const [zoom, setZoom] = useState(); //set zoom int amount
     const markerIcon = L.icon({
         iconUrl: "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png", iconSize: [30, 30]
@@ -17,7 +17,9 @@ const PhotosContainerMap = ({ photos }) => {
         return null;
     }
 
-    console.log("photos", photos[0].locationsIreland[0].coordinates);
+    const centreCoords = photos[0].counties[0].coordinates;
+
+    setCurrentLocation(centreCoords); 
 
     const markerNodes = photos.map((photo) => {
 
@@ -30,7 +32,6 @@ const PhotosContainerMap = ({ photos }) => {
 
             return ( 
                 
-            
                 <Marker position={[coordinates.latitude, coordinates.longitude]} icon={markerIcon}>
     
                 </ Marker>
@@ -52,9 +53,11 @@ const PhotosContainerMap = ({ photos }) => {
 
     return  (
 
-        <div className="containerMap">MAP HERE
+        <div className="containerMap"> 
 
-        <Map center={[53.1424 , -7.6921]} zoom={8}>
+        
+
+        <Map center={[centreCoords.latitude, centreCoords.longitude]} zoom={8}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
