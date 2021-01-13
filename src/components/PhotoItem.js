@@ -18,10 +18,8 @@ const PhotoItem = ({photo}) => {
     if (photo.date) {
         photoCaption = <figcaption>{photo.archivedDescription} ({photo.date.isoDate}) <Link to={`/${photo.id}`}>More Info</Link></figcaption>
     } else {
-        photoCaption = <figcaption>{photo.archivedDescription}<button>More info</button></figcaption>
+        photoCaption = <figcaption>{photo.archivedDescription}<Link to={`/${photo.id}`}>More Info</Link></figcaption>
     }
-
-
 
 
 

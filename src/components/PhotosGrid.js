@@ -1,9 +1,9 @@
-import PhotosContainer from "../containers/PhotosContainer";
 import PhotoItem from "./PhotoItem";
-import "./PhotosGrid.css"
+import "./PhotosGrid.css";
+import ReactPaginate from 'react-paginate';
 
 
-const PhotosGrid = ({photos}) => { 
+const PhotosGrid = ({photos, changePage, pageCount, currentPage}) => { 
 
     const photoNodes = photos.map((photo) => {
         return (
@@ -16,7 +16,21 @@ const PhotosGrid = ({photos}) => {
 
     return (
         <>
+             <ReactPaginate
+                    previousLabel={"prev"}
+                    nextLabel={"next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={pageCount}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    forcePage={currentPage}
+                    onPageChange={changePage}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}/>
             <div className="photoGrid">{photoNodes}</div>
+           
         </>
     )
 };
