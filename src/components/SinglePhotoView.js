@@ -1,6 +1,6 @@
-import { useParams, Link } from "react-router-dom"
-import { useState, useEffect } from "react"
-import PhotosMap from "./PhotosMap"
+import { useParams, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import PhotoMap from "./PhotoMap";
 
 const SinglePhotoView = () => {
 
@@ -32,7 +32,7 @@ const SinglePhotoView = () => {
             <img src={`https://doras.gaois.ie/cbeg/${photo.referenceNumber}.jpg?format=jpg&width=620&quality=85`}/>
             <p>Photographer: {photo.photographer && photo.photographer.names[0].fullName} </p>
             <br/>
-            <PhotosMap photo = {photo}/>
+            <PhotoMap photo = {photo}/>
             <Link to="/">Back to Main View</Link>
         </>
     )

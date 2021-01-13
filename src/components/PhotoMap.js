@@ -3,7 +3,7 @@ import { Popup, MapContainer as Map, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const PhotosMap = ({ photo }) => {
+const PhotoMap = ({ photo }) => {
     const [currentLocation, setCurrentLocation] = useState(); //{//lat lng co-ordinates//} 53.264, -7.564
     const [zoom, setZoom] = useState(); //set zoom int amount
     const markerIcon = L.icon({
@@ -19,10 +19,19 @@ const PhotosMap = ({ photo }) => {
         return null
     }
 
+
+        // hard coded information in above componenet  
+
+        // passing props into componenet from container, list instead of object
+
+        // populate data into new map component
+
+        // dynamically all the markers will be changed but not zoom
+        
     console.log("photo", photo.locationsIreland[0].coordinates)
     const coordinates = photo.locationsIreland[0].coordinates
     return (
-        <Map center={[coordinates.latitude, coordinates.longitude]} zoom={7}>
+        <Map center={[coordinates.latitude, coordinates.longitude]} zoom={6}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -40,4 +49,4 @@ const PhotosMap = ({ photo }) => {
     );
 }
 
-export default PhotosMap;
+export default PhotoMap;

@@ -1,4 +1,6 @@
 import PhotosGrid from "../components/PhotosGrid"
+import PhotoMap from "../components/PhotoMap"
+import PhotosContainerMap from "../components/PhotosContainerMap";
 
 const PhotosContainer = ({photos, changePage, pageCount, currentPage}) => {
 
@@ -10,7 +12,7 @@ const PhotosContainer = ({photos, changePage, pageCount, currentPage}) => {
     } else if (photos.length === 0) {
         return (
         <>
-            <p>No photos available for this county and date range</p>
+            <p> No photos available for this county and date range </p>
         </>
     )} else {
 
@@ -22,6 +24,9 @@ const PhotosContainer = ({photos, changePage, pageCount, currentPage}) => {
                 pageCount ={pageCount}
                 currentPage={currentPage}
                 />
+            <PhotosContainerMap 
+                photos={photos}/>
+
         </>
     )}
 }

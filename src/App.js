@@ -85,7 +85,10 @@ function App() {
         <Switch>
             <Route exact path="/"
                    render={()=><PhotosContainer photos={photos} changePage={handlePageClick} pageCount ={pageCount}
-                   currentPage={currentPage}/>}/>
+                   currentPage={currentPage}
+
+                    
+                   />}/>
             <Route path = "/:id"
                    component={SinglePhotoView}/>
       </Switch>
