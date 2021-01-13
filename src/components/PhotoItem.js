@@ -17,7 +17,7 @@ const PhotoItem = ({photo}) => {
     if (photo.date) {
         photoCaption = <h4>{photo.archivedDescription} ({photo.date.isoDate}) <Link to={`/${photo.id}`}>More Info</Link></h4>
     } else {
-        photoCaption = <h4>{photo.archivedDescription}<button>More info</button></h4>
+        photoCaption = <h4>{photo.archivedDescription}<Link to={`/${photo.id}`}>More Info</Link></h4>
     }
 
 

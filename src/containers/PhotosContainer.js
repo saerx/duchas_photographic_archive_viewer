@@ -16,8 +16,12 @@ const PhotosContainer = ({photos, changePage, pageCount, currentPage}) => {
 
     return (
         <>
-            <PhotosGrid photos={photos} changePage={changePage} pageCount ={pageCount}
-            currentPage={currentPage}/>
+            <PhotosGrid 
+                photos={photos} 
+                changePage={changePage} 
+                pageCount ={pageCount}
+                currentPage={currentPage}
+                />
         </>
     )}
 }
