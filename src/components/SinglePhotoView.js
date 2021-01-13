@@ -18,7 +18,7 @@ const SinglePhotoView = () => {
 
     useEffect(() => {
         fetchPhoto()
-      }, [photo])
+      }, [])
 
     let photoYear = null;
     if (photo.date) {
