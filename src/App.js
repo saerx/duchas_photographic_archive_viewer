@@ -23,6 +23,8 @@ function App() {
   const [parentStartDate, setParentStartDate] = useState("1930");
   const [endDate, setEndDate] = useState("1939");
 
+  const [currentLocation, setCurrentLocation] = useState([53.264, -7.564]);
+
   // const fetchPhotos = () => {
   //   console.log("getting photos...")
   //   // Photos from Co. Meath in the 1930s and 40s
@@ -35,17 +37,26 @@ function App() {
 
   const fetchPhotos = async() => {
       const res = await
-  axios.get(`https://www.duchas.ie/api/v0.5/cbeg/?CountyID=${parentCountyID}&DateFrom=${parentStartDate}&DateTo=${endDate}&apiKey=Rua2njQgwdoZ9vnRb7JTV7dfHQ4c5a`)
+      axios.get(`https://www.duchas.ie/api/v0.5/cbeg/?CountyID=${parentCountyID}&DateFrom=${parentStartDate}&DateTo=${endDate}&apiKey=Rua2njQgwdoZ9vnRb7JTV7dfHQ4c5a`)
       const data = res.data;
           const slice = data.slice(offset, offset + perPage)
           const postData = slice
           setPhotos(postData)
-          setPageCount(Math.ceil(data.length / perPage))
+          setPageCount(Math.ceil(data.length / perPage)) 
   }
 
   useEffect(() => {
     fetchPhotos()
   }, [parentCountyID, endDate, offset])
+
+  const setCoordinates = () => {
+    const centreCoords = photos[0].counties[0].coordinates;
+    setCurrentLocation([centreCoords.latitude, centreCoords.longitude]);
+  }
+
+  useEffect(() => {
+    setCoordinates()
+  }, [photos])
 
   const resetPage = () => {
     setCurrentPage(0)
