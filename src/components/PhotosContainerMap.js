@@ -7,8 +7,6 @@ import PhotosContainer from '../containers/PhotosContainer';
 
 const PhotosContainerMap = ({ photos }) => {
 
-    const [currentLocation, setCurrentLocation] = useState([53.264, -7.564]); 
-    const [zoom, setZoom] = useState(); //set zoom int amount
     const markerIcon = L.icon({
         iconUrl: "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png", iconSize: [30, 30]
     });
@@ -17,7 +15,7 @@ const PhotosContainerMap = ({ photos }) => {
         return null;
     }
 
-    const centreCoords = photos[0].counties[0].coordinates;
+    // const centreCoords = photos[0].counties[0].coordinates;
 
     // setCurrentLocation(centreCoords); 
 
@@ -57,7 +55,7 @@ const PhotosContainerMap = ({ photos }) => {
 
         
 
-        <Map center={[centreCoords.latitude, centreCoords.longitude]} zoom={8}>
+        <Map center={[53.264, -7.564]} zoom={6}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
