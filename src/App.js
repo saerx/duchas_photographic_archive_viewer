@@ -23,6 +23,8 @@ function App() {
   const [parentStartDate, setParentStartDate] = useState("1930");
   const [endDate, setEndDate] = useState("1939");
 
+  const [currentLocation, setCurrentLocation] = useState([53.264, -7.564]);
+
   // const fetchPhotos = () => {
   //   console.log("getting photos...")
   //   // Photos from Co. Meath in the 1930s and 40s
@@ -46,6 +48,18 @@ function App() {
   useEffect(() => {
     fetchPhotos()
   }, [parentCountyID, endDate, offset])
+
+  const setCoordinates = () => {
+    if (photos.length > 0) {
+    console.log("setting coordinates")
+    const centerCoords = photos[0].counties[0].coordinates
+    setCurrentLocation([centerCoords.latitude, centerCoords.longitude])
+    }
+  };
+
+  useEffect(() => {
+    setCoordinates()
+  }, [photos]);
 
   const resetPage = () => {
     setCurrentPage(0)
@@ -85,7 +99,7 @@ function App() {
         <Switch>
             <Route exact path="/"
                    render={()=><PhotosContainer photos={photos} changePage={handlePageClick} pageCount ={pageCount}
-                   currentPage={currentPage}/>}/>
+                   currentPage={currentPage} mapsCentre={currentLocation} />}/>
             <Route path = "/:id"
                    component={SinglePhotoView}/>
       </Switch>

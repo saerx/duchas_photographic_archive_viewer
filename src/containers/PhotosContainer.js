@@ -2,7 +2,7 @@ import PhotosGrid from "../components/PhotosGrid"
 import PhotoMap from "../components/PhotoMap"
 import PhotosContainerMap from "../components/PhotosContainerMap";
 
-const PhotosContainer = ({photos, changePage, pageCount, currentPage}) => {
+const PhotosContainer = ({photos, changePage, pageCount, currentPage, mapsCentre}) => {
 
     if (!photos) {
 
@@ -25,7 +25,7 @@ const PhotosContainer = ({photos, changePage, pageCount, currentPage}) => {
                 currentPage={currentPage}
                 />
             <PhotosContainerMap 
-                photos={photos}/>
+                photos={photos} mapsCentre = {mapsCentre}/>
 
         </>
     )}

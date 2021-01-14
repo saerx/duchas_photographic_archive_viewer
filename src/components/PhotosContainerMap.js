@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import { Popup, MapContainer as Map, TileLayer, Marker } from 'react-leaflet';
+import { useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import PhotoMap from './PhotoMap';
 import PhotosContainer from '../containers/PhotosContainer';
 
-const PhotosContainerMap = ({ photos }) => {
+const PhotosContainerMap = ({ photos, mapsCentre }) => {
 
     const markerIcon = L.icon({
         iconUrl: "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png", iconSize: [30, 30]
     });
 
     if (!photos) {
+        return null;
+    }
+
+    const SetCentre = ({ centre }) => {
+        const map = useMap()
+        console.log("map");
+        map.setView(centre, 8);
         return null;
     }
 
@@ -56,25 +64,16 @@ const PhotosContainerMap = ({ photos }) => {
 
     });
 
-    // hard coded information in above componenet  
-
-    // passing props into componenet from container, list instead of object
-
-    // populate data into new map component
-
-    // dynamically all the markers will be changed but not zoom
-
     return (
 
         <div className="containerMap">
 
-
-
-            <Map center={[53.264, -7.564]} zoom={6}>
+            <Map center={mapsCentre} zoom={8}>
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
+                <SetCentre centre={mapsCentre} />
                 {markerNodes}
             </Map>
 
