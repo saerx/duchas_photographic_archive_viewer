@@ -23,7 +23,7 @@ const SinglePhotoView = () => {
 
     let photoYear = null;
     if (photo.date) {
-        photoYear = <>{photo.date.isoDate}</>
+        photoYear = <>{photo.date.year}</>
     }
 
     return (

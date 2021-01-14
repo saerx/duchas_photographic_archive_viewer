@@ -19,12 +19,14 @@ const PhotoMap = ({ photo }) => {
         return null
     }
 
-<<<<<<< HEAD:src/components/PhotosMap.js
-    console.log( photo.locationsIreland[0].coordinates)
-=======
-        
-    console.log("photo", photo.locationsIreland[0].coordinates)
->>>>>>> 88f24dd1b40bdaaae93e9b650e52d9fa3e1562f3:src/components/PhotoMap.js
+    let photoYear = null;
+    if (photo.date) {
+        photoYear = <>{photo.date.year}</>
+    }
+    else{
+        photoYear = <>No year to display</>
+    }
+
     const coordinates = photo.locationsIreland[0].coordinates
     return (
         <Map center={[coordinates.latitude, coordinates.longitude]} zoom={10}>
@@ -36,7 +38,7 @@ const PhotoMap = ({ photo }) => {
                 <Popup>
                    <b>Location:</b> {photo.locationsIreland[0].nameEN}<br></br>
                    <b>Description:</b> {photo.archivedDescription}<br></br>
-                   <b>Year:</b> {photo.date.year}<br></br>
+                   <b>Year:</b> {photoYear}<br></br>
                    <b>Photographer:</b> {photo.photographer.names[0].fullName}
                    
                 </Popup>
