@@ -5,8 +5,7 @@ import axios from 'axios'
 import ReactPaginate from 'react-paginate'
 
 import PhotosContainer from "./containers/PhotosContainer"
-import CountyChanger from "./components/CountyChanger"
-import DateRangeChanger from "./components/DateRangeChanger"
+
 import SinglePhotoView from "./components/SinglePhotoView"
 
 
@@ -47,19 +46,26 @@ function App() {
     fetchPhotos()
   }, [parentCountyID, endDate, offset])
 
+  const handleDateRange = (year) => {
+    setParentStartDate(year);
+   }
+
+   const handleParentCountyID = (countyID) => {
+    resetPage()
+    setParentCountyID(countyID)
+  }
+
   const resetPage = () => {
     setCurrentPage(0)
     setOffset(0)
   }
 
-  const handleParentCountyID = (countyID) => {
+  useEffect(() => {
+    const newEndDate = parseInt(parentStartDate) + 9;
+    setEndDate(`${newEndDate}`)
     resetPage()
-    setParentCountyID(countyID)
-  }
+  }, [parentStartDate])
 
-  const handleDateRange = (year) => {
-    setParentStartDate(year);
-   }
 
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
@@ -68,24 +74,23 @@ function App() {
     setCurrentPage(selectedPage)
   };
 
-  useEffect(() => {
-    const newEndDate = parseInt(parentStartDate) + 9;
-    setEndDate(`${newEndDate}`)
-    resetPage()
-  }, [parentStartDate])
+
 
   return (
     <Router>
       <h1 className = "pageHeading">Dúchas Photographic Collection</h1>
       <h2 className= "pageSubHeading">A Century of Irish Life</h2>
-      <CountyChanger changeCountyID={handleParentCountyID}/>
-      <br/>
-      <br/>
-      <DateRangeChanger changeParentDateRange={handleDateRange}/>
         <Switch>
             <Route exact path="/"
                    render={()=><PhotosContainer photos={photos} changePage={handlePageClick} pageCount ={pageCount}
+<<<<<<< HEAD
                    currentPage={currentPage}/>}/>
+=======
+                   currentPage={currentPage}
+                   changeCountyID={handleParentCountyID}
+                   changeParentDateRange={handleDateRange}
+                   />}/>
+>>>>>>> 5299f0d59e8460e9b5a3d0e81bbe42999dd64b44
             <Route path = "/:id"
                    component={SinglePhotoView}/>
       </Switch>
