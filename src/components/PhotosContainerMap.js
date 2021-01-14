@@ -19,7 +19,7 @@ const PhotosContainerMap = ({ photos }) => {
 
     const centreCoords = photos[0].counties[0].coordinates;
 
-    setCurrentLocation(centreCoords); 
+    // setCurrentLocation(centreCoords); 
 
     const markerNodes = photos.map((photo) => {
 
