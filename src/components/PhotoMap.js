@@ -40,7 +40,6 @@ const PhotoMap = ({ photo }) => {
                    <b>Description:</b> {photo.archivedDescription}<br></br>
                    <b>Year:</b> {photoYear}<br></br>
                    <b>Photographer:</b> {photo.photographer && photo.photographer.names[0].fullName}
-                   
                 </Popup>
             </Marker>
         </Map>
