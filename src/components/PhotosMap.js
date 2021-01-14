@@ -19,7 +19,7 @@ const PhotosMap = ({ photo }) => {
         return null
     }
 
-    console.log("photo", photo.locationsIreland[0].coordinates)
+    console.log( photo.locationsIreland[0].coordinates)
     const coordinates = photo.locationsIreland[0].coordinates
     return (
         <Map center={[coordinates.latitude, coordinates.longitude]} zoom={7}>
