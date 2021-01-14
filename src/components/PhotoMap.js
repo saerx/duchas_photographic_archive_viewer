@@ -3,7 +3,7 @@ import { Popup, MapContainer as Map, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const PhotosMap = ({ photo }) => {
+const PhotoMap = ({ photo }) => {
     const [currentLocation, setCurrentLocation] = useState(); //{//lat lng co-ordinates//} 53.264, -7.564
     const [zoom, setZoom] = useState(); //set zoom int amount
     const markerIcon = L.icon({
@@ -19,10 +19,15 @@ const PhotosMap = ({ photo }) => {
         return null
     }
 
+<<<<<<< HEAD:src/components/PhotosMap.js
     console.log( photo.locationsIreland[0].coordinates)
+=======
+        
+    console.log("photo", photo.locationsIreland[0].coordinates)
+>>>>>>> 88f24dd1b40bdaaae93e9b650e52d9fa3e1562f3:src/components/PhotoMap.js
     const coordinates = photo.locationsIreland[0].coordinates
     return (
-        <Map center={[coordinates.latitude, coordinates.longitude]} zoom={7}>
+        <Map center={[coordinates.latitude, coordinates.longitude]} zoom={10}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -40,4 +45,4 @@ const PhotosMap = ({ photo }) => {
     );
 }
 
-export default PhotosMap;
+export default PhotoMap;

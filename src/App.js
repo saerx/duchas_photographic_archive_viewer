@@ -13,10 +13,12 @@ import SinglePhotoView from "./components/SinglePhotoView"
 function App() {
 
   const [photos, setPhotos] = useState([]);
+
   const [offset, setOffset] = useState(0);
   const [perPage] = useState(10);
   const [pageCount, setPageCount] = useState(0)
   const [currentPage, setCurrentPage] = useState(0)
+  
   const [parentCountyID, setParentCountyID] = useState("100000");
   const [parentStartDate, setParentStartDate] = useState("1930");
   const [endDate, setEndDate] = useState("1939");
@@ -83,7 +85,10 @@ function App() {
         <Switch>
             <Route exact path="/"
                    render={()=><PhotosContainer photos={photos} changePage={handlePageClick} pageCount ={pageCount}
-                   currentPage={currentPage}/>}/>
+                   currentPage={currentPage}
+
+                    
+                   />}/>
             <Route path = "/:id"
                    component={SinglePhotoView}/>
       </Switch>
