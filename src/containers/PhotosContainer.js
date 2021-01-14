@@ -13,6 +13,10 @@ const PhotosContainer = ({photos, changePage, pageCount, currentPage, changeCoun
     } else if (photos.length === 0) {
         return (
         <>
+            <CountyChanger changeCountyID={changeCountyID}/>
+            <br/>
+            <br/>
+            <DateRangeChanger changeParentDateRange={changeParentDateRange}/>
             <p> No photos available for this county and date range </p>
         </>
     )} else {
