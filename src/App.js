@@ -35,6 +35,7 @@ function App() {
   const fetchPhotos = async() => {
       const res = await
   axios.get(`https://www.duchas.ie/api/v0.5/cbeg/?CountyID=${parentCountyID}&DateFrom=${parentStartDate}&DateTo=${endDate}&apiKey=Rua2njQgwdoZ9vnRb7JTV7dfHQ4c5a`)
+  // http://localhost:3001/api/photos/${parentCountyID}/${parentStartDate}/${endDate}/
       const data = res.data;
           const slice = data.slice(offset, offset + perPage)
           const postData = slice
