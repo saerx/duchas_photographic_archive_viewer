@@ -4,8 +4,8 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const PhotoMap = ({ photo }) => {
-    const [currentLocation, setCurrentLocation] = useState(); //{//lat lng co-ordinates//} 53.264, -7.564
-    const [zoom, setZoom] = useState(); //set zoom int amount
+    const [currentLocation, setCurrentLocation] = useState(); 
+    const [zoom, setZoom] = useState(); 
     const markerIcon = L.icon({
         iconUrl: "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png", iconSize: [30, 30]
     });
@@ -15,7 +15,7 @@ const PhotoMap = ({ photo }) => {
 
     //     )
     // })
-    if (!photo){
+    if (!photo || !photo.locationsIreland[0]){
         return null
     }
 
@@ -27,7 +27,9 @@ const PhotoMap = ({ photo }) => {
         photoYear = <>No year to display</>
     }
 
-    const coordinates = photo.locationsIreland[0].coordinates
+
+
+    const coordinates = photo.locationsIreland && photo.locationsIreland[0].coordinates
     return (
         <Map center={[coordinates.latitude, coordinates.longitude]} zoom={10}>
             <TileLayer
@@ -36,11 +38,10 @@ const PhotoMap = ({ photo }) => {
             />
             <Marker position={[coordinates.latitude, coordinates.longitude]} icon={markerIcon}>
                 <Popup>
-                   <b>Location:</b> {photo.locationsIreland[0].nameEN}<br></br>
+                   <b>Location:</b> {photo.locationsIreland && photo.locationsIreland[0].nameEN}<br></br>
                    <b>Description:</b> {photo.archivedDescription}<br></br>
                    <b>Year:</b> {photoYear}<br></br>
                    <b>Photographer:</b> {photo.photographer && photo.photographer.names[0].fullName}
-                   
                 </Popup>
             </Marker>
         </Map>

@@ -23,17 +23,19 @@ const SinglePhotoView = () => {
 
     let photoYear = null;
     if (photo.date) {
-        photoYear = <>{photo.date.year}</>
+        photoYear = <>({photo.date.year})</>
     }
 
     return (
         <>
-            <h3>{photo.archivedDescription} ({photoYear})</h3>
+            <h3>{photo.archivedDescription} {photoYear}</h3>
             <img src={`https://doras.gaois.ie/cbeg/${photo.referenceNumber}.jpg?format=jpg&width=620&quality=85`}/>
-            <p>Photographer: {photo.photographer && photo.photographer.names[0].fullName}</p>
-            <br/>
+            <p><b>Photographer:</b> {photo.photographer && photo.photographer.names[0].fullName}</p>
+            <Link to="/"><button class="button">Back to Main View</button></Link>
+            <br></br>
+            <br></br>
+            <br></br>
             <PhotoMap photo = {photo}/>
-            <Link to="/">Back to Main View</Link>
         </>
     )
 }

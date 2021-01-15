@@ -27,8 +27,6 @@ const PhotosContainerMap = ({ photos, mapsCentre }) => {
 
     // setCurrentLocation(centreCoords); 
 
-    // was thinking of declaring useState in this component, before utilising variabless in functionality for setting county coords.
-
     const markerNodes = photos.map((photo) => {
 
         console.log("photoslist", photo.locationsIreland[0]);

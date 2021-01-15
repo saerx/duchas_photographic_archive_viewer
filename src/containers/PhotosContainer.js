@@ -1,8 +1,9 @@
 import PhotosGrid from "../components/PhotosGrid"
-import PhotoMap from "../components/PhotoMap"
 import PhotosContainerMap from "../components/PhotosContainerMap";
+import CountyChanger from "../components/CountyChanger"
+import DateRangeChanger from "../components/DateRangeChanger"
 
-const PhotosContainer = ({photos, changePage, pageCount, currentPage, mapsCentre}) => {
+const PhotosContainer = ({photos, changePage, pageCount, currentPage, changeCountyID, changeParentDateRange, mapsCentre}) => {
 
     if (!photos) {
 
@@ -18,14 +19,20 @@ const PhotosContainer = ({photos, changePage, pageCount, currentPage, mapsCentre
 
     return (
         <>
-            <PhotosGrid 
-                photos={photos} 
-                changePage={changePage} 
-                pageCount ={pageCount}
-                currentPage={currentPage}
-                />
-            <PhotosContainerMap 
-                photos={photos} mapsCentre = {mapsCentre}/>
+        <CountyChanger changeCountyID={changeCountyID}/>
+        <br/>
+        <br/>
+        <DateRangeChanger changeParentDateRange={changeParentDateRange}/>
+            <br/>
+            <br/>
+        <PhotosGrid 
+            photos={photos} 
+            changePage={changePage} 
+            pageCount ={pageCount}
+            currentPage={currentPage}
+            />
+        <PhotosContainerMap 
+            photos={photos} mapsCentre = {mapsCentre}/>
 
         </>
     )}
