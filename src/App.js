@@ -5,7 +5,8 @@ import axios from 'axios'
 import ReactPaginate from 'react-paginate'
 
 import PhotosContainer from "./containers/PhotosContainer"
-
+import CountyChanger from "./components/CountyChanger"
+import DateRangeChanger from "./components/DateRangeChanger"
 import SinglePhotoView from "./components/SinglePhotoView"
 
 
@@ -81,12 +82,16 @@ function App() {
     <Router>
       <h1 className = "pageHeading">Dúchas Photographic Collection</h1>
       <h2 className= "pageSubHeading">A Century of Irish Life</h2>
+      <div id="nav-components">
+        <CountyChanger changeCountyID={handleParentCountyID}/>
+            <br/>
+            <br/>
+        <DateRangeChanger changeParentDateRange={handleDateRange}/>
+        </div>
         <Switch>
             <Route exact path="/"
                    render={()=><PhotosContainer photos={photos} changePage={handlePageClick} pageCount ={pageCount}
                    currentPage={currentPage}
-                   changeCountyID={handleParentCountyID}
-                   changeParentDateRange={handleDateRange}
                    />}/>
             <Route path = "/:id"
                    component={SinglePhotoView}/>
