@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+/* #photos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    
+} */
+=======
 .photoGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -68,3 +75,4 @@
 }
 
 
+>>>>>>> e9e54d87336dc467df48fba0286a13e3cf38590d

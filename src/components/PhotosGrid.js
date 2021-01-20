@@ -15,6 +15,7 @@ const PhotosGrid = ({photos, changePage, pageCount, currentPage}) => {
     });
 
     return (
+
         <>
              <ReactPaginate
                     previousLabel={"prev"}
@@ -32,6 +33,7 @@ const PhotosGrid = ({photos, changePage, pageCount, currentPage}) => {
             <div className="photoGrid">{photoNodes}</div>
            
         </>
+        
     )
 };
 
