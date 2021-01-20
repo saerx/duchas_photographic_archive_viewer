@@ -1,5 +1,78 @@
+<<<<<<< HEAD
 /* #photos-grid {
     display: grid;
     grid-template-columns: 1fr 1fr ;
     
 } */
+=======
+.photoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 20px;
+
+}
+
+.imageWrap {
+    position: relative;
+}
+
+.imageWrap img{
+    max-width: 100%;
+    z-index: 1;
+}
+
+.imageWrap figcaption{
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 8px; /*if using padding in the caption, match here */
+    left: 0;
+    z-index: 2;
+    margin: 0;
+    color: #fff;
+    /* font-weight: bold; */
+    background: rgba(0, 0, 0, 0.685);
+}
+
+.imageWrap figcaption > figcaption {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align:center;
+}
+
+.imageWrap figcaption > figcaption a {
+    font-family: 'Roboto', sans-serif;
+    text-align:center;
+}
+
+.imageWrap figcaption > figcaption a:link {
+    color:olivedrab;
+    text-decoration: none;
+}
+
+.imageWrap figcaption > figcaption a:hover {
+    color:white;
+}
+
+.pageHeading {
+    width: 100%;
+    background-color:cornsilk;
+    margin: auto;
+    padding-right: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align:center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bolder;
+    color: rgb(91, 91, 91);
+}
+
+.pageSubHeading {
+    background-color: rgb(91, 91, 91);
+    color: cornsilk;
+    padding: 20px 20px 20px 20px;
+}
+
+
+>>>>>>> e9e54d87336dc467df48fba0286a13e3cf38590d

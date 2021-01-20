@@ -1,5 +1,8 @@
-import { useParams, Link } from "react-router-dom"
-import { useState, useEffect } from "react"
+import "./SingleView.css";
+
+import { useParams, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import PhotoMap from "./PhotoMap";
 
 const SinglePhotoView = () => {
 
@@ -18,20 +21,23 @@ const SinglePhotoView = () => {
 
     useEffect(() => {
         fetchPhoto()
-      }, [photo])
+      }, [])
 
     let photoYear = null;
     if (photo.date) {
-        photoYear = <>{photo.date.isoDate}</>
+        photoYear = <>({photo.date.year})</>
     }
 
     return (
         <>
-            <h3>{photo.archivedDescription} ({photoYear})</h3>
+            <h3>{photo.archivedDescription} {photoYear}</h3>
             <img src={`https://doras.gaois.ie/cbeg/${photo.referenceNumber}.jpg?format=jpg&width=620&quality=85`}/>
-            <p>Photographer: {photo.photographer && photo.photographer.names[0].fullName} </p>
-            <br/>
-            <Link to="/">Back to Main View</Link>
+            <p><b>Photographer:</b> {photo.photographer && photo.photographer.names[0].fullName}</p>
+            <Link to="/"><button class="button">Back to Main View</button></Link>
+            <br></br>
+            <br></br>
+            <br></br>
+            <PhotoMap photo = {photo}/>
         </>
     )
 }
