@@ -1,9 +1,8 @@
 import PhotosGrid from "../components/PhotosGrid"
 import PhotosContainerMap from "../components/PhotosContainerMap";
-import CountyChanger from "../components/CountyChanger"
-import DateRangeChanger from "../components/DateRangeChanger"
 
-const PhotosContainer = ({photos, changePage, pageCount, currentPage, changeCountyID, changeParentDateRange, mapsCentre}) => {
+
+const PhotosContainer = ({photos, changePage, pageCount, currentPage}) => {
 
     if (!photos) {
 
@@ -13,16 +12,13 @@ const PhotosContainer = ({photos, changePage, pageCount, currentPage, changeCoun
     } else if (photos.length === 0) {
         return (
         <>
+            
             <p> No photos available for this county and date range </p>
         </>
     )} else {
 
     return (
         <>
-        <CountyChanger changeCountyID={changeCountyID}/>
-        <br/>
-        <br/>
-        <DateRangeChanger changeParentDateRange={changeParentDateRange}/>
             <br/>
             <br/>
         <PhotosGrid 

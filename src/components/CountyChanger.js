@@ -8,7 +8,7 @@ const CountyChanger = ({changeCountyID}) => {
         setCountyID(event.target.value)
     }
 
-    useEffect ((ID) => {
+    useEffect (() => {
         changeCountyID(countyID)
     }, [countyID])
 

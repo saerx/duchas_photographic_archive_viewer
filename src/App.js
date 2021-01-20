@@ -5,7 +5,8 @@ import axios from 'axios'
 import ReactPaginate from 'react-paginate'
 
 import PhotosContainer from "./containers/PhotosContainer"
-
+import CountyChanger from "./components/CountyChanger"
+import DateRangeChanger from "./components/DateRangeChanger"
 import SinglePhotoView from "./components/SinglePhotoView"
 
 
@@ -37,6 +38,7 @@ function App() {
   const fetchPhotos = async() => {
       const res = await
   axios.get(`https://www.duchas.ie/api/v0.5/cbeg/?CountyID=${parentCountyID}&DateFrom=${parentStartDate}&DateTo=${endDate}&apiKey=Rua2njQgwdoZ9vnRb7JTV7dfHQ4c5a`)
+  // http://localhost:3001/api/photos/${parentCountyID}/${parentStartDate}/${endDate}/
       const data = res.data;
           const slice = data.slice(offset, offset + perPage)
           const postData = slice
@@ -59,11 +61,12 @@ function App() {
   useEffect(() => {
     setCoordinates()
   }, [photos]);
+
   const handleDateRange = (year) => {
     setParentStartDate(year);
    }
 
-   const handleParentCountyID = (countyID) => {
+  const handleParentCountyID = (countyID) => {
     resetPage()
     setParentCountyID(countyID)
   }
@@ -93,13 +96,17 @@ function App() {
     <Router>
       <h1 className = "pageHeading">Dúchas Photographic Collection</h1>
       <h2 className= "pageSubHeading">A Century of Irish Life</h2>
+      <div id="nav-components">
+        <CountyChanger changeCountyID={handleParentCountyID}/>
+            <br/>
+            <br/>
+        <DateRangeChanger changeParentDateRange={handleDateRange}/>
+      </div>
         <Switch>
             <Route exact path="/"
                    render={()=><PhotosContainer photos={photos} changePage={handlePageClick} pageCount ={pageCount}
-                   currentPage={currentPage} mapsCentre={currentLocation}
-                   changeCountyID={handleParentCountyID}
-                   changeParentDateRange={handleDateRange}
-                   />}
+                   currentPage={currentPage}
+                   />}/>
             <Route path = "/:id"
                    component={SinglePhotoView}/>
       </Switch>
