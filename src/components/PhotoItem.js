@@ -17,7 +17,7 @@ const PhotoItem = ({photo}) => {
     let photoCaption = null;
 
     if (photo.date) {
-        photoCaption = <figcaption>{photo.archivedDescription} ({photo.date.isoDate}) <Link to={`/${photo.id}`}>More Info</Link></figcaption>
+        photoCaption = <figcaption>{photo.archivedDescription} ({photo && photo.date.isoDate}) <Link to={`/${photo.id}`}>More Info</Link></figcaption>
     } else {
         photoCaption = <figcaption>{photo.archivedDescription}<Link to={`/${photo.id}`}>More Info</Link></figcaption>
     }
@@ -32,7 +32,7 @@ const PhotoItem = ({photo}) => {
             </figure>
             
             <img src={`https://doras.gaois.ie/cbeg/${photo.referenceNumber}.jpg?format=jpg&width=400&quality=85`}/>
-            <h4>{photo.archivedDescription} ({photo.date.isoDate})</h4>
+            <h4>{photo.archivedDescription} ({photo.date && photo.date.isoDate})</h4>
         </>
     )
 };

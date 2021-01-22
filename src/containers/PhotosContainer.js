@@ -2,7 +2,7 @@ import PhotosGrid from "../components/PhotosGrid"
 import PhotosContainerMap from "../components/PhotosContainerMap";
 
 
-const PhotosContainer = ({photos, changePage, pageCount, currentPage}) => {
+const PhotosContainer = ({photos, changePage, pageCount, currentPage, mapsCentre}) => {
 
     if (!photos) {
 

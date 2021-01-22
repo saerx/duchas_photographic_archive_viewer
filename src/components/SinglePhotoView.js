@@ -1,4 +1,4 @@
-import "./SingleView.css";
+import "./SinglePhotoView.css";
 
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
