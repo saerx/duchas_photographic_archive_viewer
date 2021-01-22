@@ -30,9 +30,6 @@ const PhotoItem = ({photo}) => {
                 <img onError={checkImage}src={`https://doras.gaois.ie/cbeg/${photo.referenceNumber}.jpg?format=jpg&width=620&quality=85`}/>
                 <figcaption><>{photoCaption}</></figcaption>
             </figure>
-            
-            <img src={`https://doras.gaois.ie/cbeg/${photo.referenceNumber}.jpg?format=jpg&width=400&quality=85`}/>
-            <h4>{photo.archivedDescription} ({photo.date && photo.date.isoDate})</h4>
         </>
     )
 };
